@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Basic SEO-->
+    <title>{% block title %}To-do list{% endblock %}</title>
+    <meta name="title" content="To-do list | Let your tasks be always with you">
+    <meta name="description" content="Add tasks and stay on top of what you have to do.">
+    <meta name="og:image" content="img/url-image.jpg">
+    <meta name="keywords" content="to-do, list, tasks">
+    <!--Stylesheets-->
+
+    <!--Google Fonts-->
+
+    <!-- Scripts -->
+    {% block scripts %}
+
+    {% endblock %}
+    <!--Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" size="32" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+
+</html>

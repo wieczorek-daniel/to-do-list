@@ -12,25 +12,25 @@
     <title>{% block title %}To-do list{% endblock %}</title>
     <meta name="title" content="To-do list | Let your tasks be always with you">
     <meta name="description" content="Add tasks and stay on top of what you have to do.">
-    <meta name="og:image" content="img/url-image.jpg">
+    <meta name="og:image" content="{% static 'images/url-image.png' %}">
     <meta name="keywords" content="to-do, list, tasks">
     <!--Stylesheets-->
-
-    <!--Google Fonts-->
-
-    <!-- Scripts -->
-    {% block scripts %}
-
-    {% endblock %}
+    {% load compress %}
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" />
+    {% endcompress %}
     <!--Favicon -->
+    <!-- Icon made by Flat Icons from www.freepik.com -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" size="32" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 </head>
 
 <body>
-    {% block content %}
+    <main>
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
+    </main>
 </body>
 
 </html>

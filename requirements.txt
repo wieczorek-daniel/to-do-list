@@ -1,2 +1,4 @@
 Django==3.2.7
 python-decouple==3.4
+django-compressor==2.4.1
+django-libsass==0.9

@@ -1,0 +1,20 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One");
+// Variables
+@import "variables";
+// Partials
+@import "partials/index";
+
+html{
+    height: 100vh;
+	min-width: 320px;
+	margin: 0;
+	padding: 0; 
+}
+
+body {
+	color: #FFF;
+	font-family: $primary-font;
+	background: $primary-color;
+}

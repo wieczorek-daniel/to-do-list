@@ -9,10 +9,22 @@
                     <a href="/">
                         <span class="material-icons">arrow_back</span>
                     </a>
-                    <span>Login</span>
+                    <span>Register</span>
                 </div>
                 <div class="card-body align-items-center">
                     <form method="POST">
+                        <div class="form-group row">
+                            <label for="first-name" class="col-md-4 offset-md-1 col-form-label">First name</label>
+                            <div class="col-md-6">
+                                <input id="first-name" type="text" class="form-control" name="first-name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="last-name" class="col-md-4 offset-md-1 col-form-label">Last name</label>
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" required>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 offset-md-1 col-form-label">Email address</label>
                             <div class="col-md-6">
@@ -26,9 +38,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="password-confirm"
+                                class="col-md-4 offset-md-1 col-form-label text-truncate">Confirm password</label>
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password-confirm" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-md-12">
                                 <button type="submit">
-                                    Sign in
+                                    Sign up
                                 </button>
                             </div>
                         </div>

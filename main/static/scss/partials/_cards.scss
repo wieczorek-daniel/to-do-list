@@ -12,13 +12,17 @@
     font-size: 2rem;
 
     & a {
-        color: #FFF
+        color: #FFF;
+
+        & span {
+            font-size: 2rem;
+            display: block;
+            float: left;
+        }
     }
 
-    & span {
-        font-size: 2rem;
-        display: block;
-        float: left;
+    & span:not(& a span) {
+        margin-left: -32px;
     }
 
     & .material-icons {
@@ -29,6 +33,12 @@
 .card-body {
     background-color: $tertiary-color;
     padding-top: 30px;
+
+    @include breakpoint(lg) {
+        & .offset-md-1 {
+            margin-left: 5.5%;
+        }
+    }
 }
 
 .row {

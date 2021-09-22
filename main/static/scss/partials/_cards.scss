@@ -36,7 +36,7 @@
 
     @include breakpoint(lg) {
         & .offset-md-1 {
-            margin-left: 5.5%;
+            margin-left: 7%;
         }
     }
 }
@@ -46,5 +46,9 @@
 
     &:last-child {
         margin-top: 40px;
+    }
+
+    & input {
+        width: 100%;
     }
 }

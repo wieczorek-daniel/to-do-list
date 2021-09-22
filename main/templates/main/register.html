@@ -4,6 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            {% for field, errors in form.errors.items %}
+            <div class="alert alert-dismissible fade show" role="alert">
+                <span>Errors in field: {{field}} {{ errors }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
             <div class="card">
                 <div class="card-header">
                     <a href="/">
@@ -12,39 +20,16 @@
                     <span>Register</span>
                 </div>
                 <div class="card-body align-items-center">
-                    <form method="POST">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        {% for field in form %}
                         <div class="form-group row">
-                            <label for="first-name" class="col-md-4 offset-md-1 col-form-label">First name</label>
+                            <label class="col-md-4 offset-md-1 col-form-label">{{ field.label }}</label>
                             <div class="col-md-6">
-                                <input id="first-name" type="text" class="form-control" name="first-name" required>
+                                {{ field }}
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="last-name" class="col-md-4 offset-md-1 col-form-label">Last name</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 offset-md-1 col-form-label">Email address</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 offset-md-1 col-form-label">Password</label>
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 offset-md-1 col-form-label text-truncate">Confirm password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password-confirm" required>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <button type="submit">

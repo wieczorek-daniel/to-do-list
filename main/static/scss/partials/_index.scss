@@ -39,7 +39,7 @@ button {
   width: 200px;
   text-transform: uppercase;
   transition: all 0.2s linear;
-  margin:0;
+  margin: 0;
 
   &:hover {
     background: #FFF;
@@ -63,5 +63,25 @@ a:first-of-type button {
   @include breakpoint(xs) {
     margin-bottom: 0;
     margin-right: 40px;
+  }
+}
+
+.alert {
+  background-color: $secondary-color;
+  position: relative;
+
+  & button {
+    color: #FFF;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    font-weight: 800;
+    border: none;
+    padding: 0;
+    width: 20px;
+    transition: all 0.2s linear;
+    position:absolute;
+    top: 12px;
+    right: 20px;
   }
 }

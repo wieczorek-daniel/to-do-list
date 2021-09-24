@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
+from .models import *
 
 
 def index(request):
@@ -54,4 +55,6 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, "main/dashboard.html")
+    tasks = Task.objects.filter(owner=request.user).all()
+    context = {'tasks': tasks}
+    return render(request, "main/dashboard.html", context)

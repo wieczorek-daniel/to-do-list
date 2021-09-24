@@ -2,6 +2,34 @@
 
 {% block content %}
 <div class="container">
-    <h1>Welcome</h1>
+    {% for task in tasks %}
+    <div class="card task">
+        <div class="card-header">
+            <span>{{ task.title }}</span>
+            <a href="#">
+                <span class="material-icons">delete</span>
+            </a>
+            <a href="#">
+                <span class="material-icons">edit</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <span><i class="material-icons">description</i>Description: {{ task.description}}</span>
+            <span>
+                <i class="material-icons">hourglass_bottom</i>
+                {{task.deadline | date:"Y-m-d"}} {{task.deadline | time:"h:i A"}}
+            </span>
+        </div>
+        <div class="card-footer">
+            <span><i class="material-icons">access_time</i>
+                Created at: {{task.created_at | date:"Y-m-d"}} {{task.created_at | time:"h:i A"}}
+            </span>
+            <span>
+                <i class="material-icons">update</i>
+                Updated at: {{task.updated_at | date:"Y-m-d"}} {{task.updated_at | time:"h:i A"}}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

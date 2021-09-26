@@ -2,8 +2,9 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import CreateUserForm
-from .models import *
+from django.utils.functional import SimpleLazyObject
+from .forms import CreateUserForm, CreateTaskForm
+from .models import Task
 
 
 def index(request):
@@ -58,3 +59,21 @@ def dashboard(request):
     tasks = Task.objects.filter(owner=request.user).all()
     context = {'tasks': tasks}
     return render(request, "main/dashboard.html", context)
+
+
+@login_required(login_url='login')
+def createTask(request):
+    form = CreateTaskForm()
+
+    if request.method == 'POST':
+        form = CreateTaskForm(request.POST)
+        
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.owner = request.user
+            task.save()
+            messages.success(request, f'A task has been created.')
+            return redirect('dashboard')
+
+    context = {'form': form}
+    return render(request, "main/create_task.html", context)

@@ -26,6 +26,7 @@
     {% endcompress %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
     {% endblock %}
     <!--Favicon -->
     <!-- Icon made by Flat Icons from www.freepik.com -->
@@ -34,7 +35,7 @@
 </head>
 
 <body>
-    {% if 'dashboard' in request.path %}
+    {% if user.is_authenticated %}
     {% include 'main/navbar.html' %}
     {% endif %}
     <main>

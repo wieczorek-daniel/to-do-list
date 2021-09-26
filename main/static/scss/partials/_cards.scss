@@ -54,6 +54,16 @@
     }
 }
 
+textarea {
+    resize: none;
+}
+
+.task-container {
+    position: inherit;
+    transform: none;
+    margin-top: 50px;
+}
+
 .task {
     .card-header {
         & span:not(& a span) {

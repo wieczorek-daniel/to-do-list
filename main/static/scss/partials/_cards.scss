@@ -66,15 +66,35 @@ textarea {
 
 .task {
     .card-header {
-        & span:not(& a span) {
+        & span:not(& button span) {
             display: block;
             float: left;
             margin-left: 0;
         }
 
-        & a span {
+        & span:not(& a span) {
+            margin-left: 0;
+        }
+
+        button {
             display: block;
             float: right;
+            border: none;
+            width: 32px;
+            padding: 0;
+
+            &:hover {
+                background-color: transparent;
+                color: #FFF;
+            }
+
+            &:last-of-type {
+                margin-right: 10px;
+            }
+
+            & span {
+                font-size: 2rem;
+            }
         }
     }
 

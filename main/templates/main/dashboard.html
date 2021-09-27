@@ -14,12 +14,12 @@
     <div class="card task">
         <div class="card-header">
             <span>{{ task.title }}</span>
-            <a href="#">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#confirm-modal-{{task.id}}">
                 <span class="material-icons">delete</span>
-            </a>
-            <a href="#">
+            </button>
+            <button type="submit">
                 <span class="material-icons">edit</span>
-            </a>
+            </button>
         </div>
         <div class="card-body">
             <span><i class="material-icons">description</i>Description: {{ task.description}}</span>
@@ -38,6 +38,7 @@
             </span>
         </div>
     </div>
+    {% include 'main/confirm_modal.html' %}
     {% endfor %}
 </div>
 {% endblock %}

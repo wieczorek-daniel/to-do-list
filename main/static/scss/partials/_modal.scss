@@ -1,0 +1,33 @@
+.modal {
+    .modal-header, .modal-footer {
+        background-color: $secondary-color;
+        border: none;
+    }
+
+    .modal-header {
+        position: relative;
+
+        button {
+            color: #FFF;
+            cursor: pointer;
+            outline: none;
+            background: transparent;
+            font-weight: 800;
+            border: none;
+            padding: 0;
+            width: 30px;
+            transition: all 0.2s linear;
+            position:absolute;
+            top: 16px;
+            right: 20px;
+
+            i {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .modal-body {
+        background-color: $tertiary-color;
+    }
+}

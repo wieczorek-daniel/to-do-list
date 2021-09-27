@@ -72,8 +72,21 @@ def createTask(request):
             task = form.save(commit=False)
             task.owner = request.user
             task.save()
-            messages.success(request, f'A task has been created.')
+            messages.success(request, 'A task has been created.')
             return redirect('dashboard')
 
     context = {'form': form}
     return render(request, "main/create_task.html", context)
+
+
+@login_required(login_url='login')
+def deleteTask(request, pk):
+    task = Task.objects.get(id=pk)
+    
+    if request.method == "POST":
+        task.delete()
+        messages.success(request, 'A task has been deleted.')
+        return redirect('dashboard')
+
+    messages.error(request, 'An error occurred while deleting an task.')
+    return redirect('dashboard')

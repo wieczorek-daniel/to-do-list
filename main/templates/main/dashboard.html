@@ -1,6 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+{% if not tasks %}
+<div class="container">
+    <h2>You have not created any tasks yet.</h2>
+</div>
+{% endif %}
 <div class="container task-container">
     {% for message in messages %}
     <div class="alert alert-dismissible fade show" role="alert">
@@ -14,31 +19,32 @@
     <div class="card task">
         <div class="card-header">
             <span>{{ task.title }}</span>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#confirm-modal-{{task.id}}">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#confirm-modal-{{ task.id }}">
                 <span class="material-icons">delete</span>
             </button>
-            <button type="submit">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#task-modal-{{ task.id }}">
                 <span class="material-icons">edit</span>
             </button>
         </div>
         <div class="card-body">
-            <span><i class="material-icons">description</i>Description: {{ task.description}}</span>
+            <span><i class="material-icons">description</i>Description: {{ task.description }}</span>
             <span>
                 <i class="material-icons">hourglass_bottom</i>
-                {{task.deadline | date:"Y-m-d"}} {{task.deadline | time:"h:i A"}}
+                {{ task.deadline | date:"Y-m-d" }} {{ task.deadline | time:"H:i" }}
             </span>
         </div>
         <div class="card-footer">
             <span><i class="material-icons">access_time</i>
-                Created at: {{task.created_at | date:"Y-m-d"}} {{task.created_at | time:"h:i A"}}
+                Created at: {{ task.created_at | date:"Y-m-d" }} {{ task.created_at | time:"H:i" }}
             </span>
             <span>
                 <i class="material-icons">update</i>
-                Updated at: {{task.updated_at | date:"Y-m-d"}} {{task.updated_at | time:"h:i A"}}
+                Updated at: {{ task.updated_at | date:"Y-m-d" }} {{ task.updated_at | time:"H:i" }}
             </span>
         </div>
     </div>
     {% include 'main/confirm_modal.html' %}
+    {% include 'main/task_modal.html' %}
     {% endfor %}
 </div>
 {% endblock %}

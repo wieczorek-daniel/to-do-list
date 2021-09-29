@@ -30,6 +30,11 @@ In the project directory also create an .env file containing environment variabl
 cp .env.example .env # for Linux
 copy .env.example .env # for Windows
 ```
+Before running the application migrate the data using the following commands:
+```shell
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
 To start the application use the following command:
 ```shell
 python3 manage.py runserver

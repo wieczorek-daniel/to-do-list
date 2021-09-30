@@ -15,6 +15,13 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
+class UpdateUserForm(ModelForm):
+    class Meta:
+        model = User
+
+        fields = ['email', 'first_name', 'last_name']
+
+
 class CreateTaskForm(ModelForm):
     class Meta:
         model = Task

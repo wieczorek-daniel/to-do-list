@@ -3,6 +3,11 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'dashboard' %}">
+                        <span><i class="material-icons">task</i>Tasks</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="{% url 'create_task' %}">
                         <span><i class="material-icons">add</i>Add new task</span>
                     </a>
@@ -25,7 +30,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <span><i class="material-icons">person</i>{{ request.user}}</span>
+                        <span>
+                            <i class="material-icons">person</i>
+                            {{ request.user.first_name }} {{ request.user.last_name }} ({{ request.user }})
+                        </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
@@ -34,7 +42,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
                     </ul>
                 </li>
             </ul>

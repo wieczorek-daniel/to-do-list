@@ -31,7 +31,7 @@ button {
   cursor: pointer;
   outline: none;
   background: transparent;
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 800;
   border: #FFF solid 2px;
   border-radius: 24px;
@@ -43,8 +43,8 @@ button {
 
   &:hover {
     background: #FFF;
-    color: $primary-color;
-    border-color: $primary-color;
+    color: $secondary-color;
+    border-color: $secondary-color;
   }
 }
 
@@ -52,25 +52,25 @@ a {
   text-decoration: none;
 }
 
-a:first-of-type button {
-  margin-bottom: 20px;
-
-  @include breakpoint(385px) {
-    margin-bottom: 0;
-    margin-right: 20px;
+.buttons a:first-of-type {
+  button {
+    margin-bottom: 20px;
   }
-
-  @include breakpoint(xs) {
-    margin-bottom: 0;
+  
+  @include breakpoint(sm) {
     margin-right: 40px;
+
+    button {
+      margin: 0
+    }
   }
 }
 
 .alert {
-  background-color: $secondary-color;
+  background-color: $primary-color;
   position: relative;
 
-  & button {
+  button {
     color: #FFF;
     cursor: pointer;
     outline: none;
@@ -83,9 +83,14 @@ a:first-of-type button {
     position:absolute;
     top: 12px;
     right: 20px;
+
+    &:hover {
+      color: $tertiary-color;
+    }
   }
 }
 
 .standalone-button {
-  width: 270px;
+  width: 300px;
+  margin-right: 0;
 }

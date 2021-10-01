@@ -2,6 +2,7 @@
     border: none;
     font-size: 1rem;
     margin-bottom: 20px;
+    margin-top: 50px;
 
     @include breakpoint(lg) {
         font-size: 1.2rem;
@@ -9,35 +10,63 @@
 }
 
 .card-header {
-    background-color: $secondary-color;
+    background-color: $primary-color;
     font-size: 2rem;
 
-    & a {
+    a {
         color: #FFF;
 
-        & span {
+        &:hover {
+            color: $tertiary-color;
+        }
+
+        span {
             font-size: 2rem;
             display: block;
             float: left;
         }
     }
 
-    & span:not(& a span) {
+    span:not(a span) {
         margin-left: -32px;
     }
 
-    & .material-icons {
+    .material-icons {
         line-height: inherit;
     }
 }
 
 .card-body {
-    background-color: $tertiary-color;
+    background-color: #FFF;
     padding-top: 30px;
+    color: $secondary-color;
 
     @include breakpoint(lg) {
-        & .offset-md-1 {
+        .offset-md-1 {
             margin-left: 7%;
+        }
+    }
+
+    button {
+        background: transparent;
+        border-color: $secondary-color;
+        color: $secondary-color;
+
+        &:hover {
+            background-color: $secondary-color;
+            border-color: #FFF;
+            color: #FFF;
+        }
+    }
+
+    input, textarea {
+        border: solid 1px $secondary-color;
+        color: $secondary-color;
+        border-radius: 10px;
+        padding: 5px 10px;
+
+        &:focus {
+            color: $secondary-color;
         }
     }
 }
@@ -49,16 +78,16 @@
         margin-top: 40px;
     }
 
-    & input {
+    input {
         width: 100%;
     }
 
     span {
         a {
-            color: white;
+            color: $secondary-color;
 
             &:hover {
-                color: #d7deda;
+                color: $tertiary-color;
             }
         }
     }
@@ -76,13 +105,13 @@ textarea {
 
 .task {
     .card-header {
-        & span:not(& button span) {
+        span:not(button span) {
             display: block;
             float: left;
             margin-left: 0;
         }
 
-        & span:not(& a span) {
+        span:not(a span) {
             margin-left: 0;
         }
 
@@ -95,35 +124,35 @@ textarea {
 
             &:hover {
                 background-color: transparent;
-                color: #FFF;
+                color: $secondary-color;
             }
 
             &:last-of-type {
                 margin-right: 10px;
             }
 
-            & span {
+            span {
                 font-size: 2rem;
             }
         }
     }
 
     .card-body {
-        & span {
+        span {
             display: block;
         }
     }
 
     .card-footer {
-        background-color: $secondary-color;
+        background-color: $primary-color;
     
-        & span {
+        span {
             font-size: 1rem;
             padding-right: 10px;
             display: block;
         }
     
-        & .material-icons {
+        .material-icons {
             padding-right: 5px;
             vertical-align: bottom;
         }

@@ -9,12 +9,13 @@
         <button class="standalone-button" type="submit">Go to dashboard</button>
     </a>
     {% else %}
-    <a href="{% url 'login' %}">
-        <button type="submit">Login</button>
-    </a>
-    <a href="{% url 'register' %}">
-        <button type="submit">Register</button>
-    </a>
+    <div class="buttons">
+        <a href="{% url 'login' %}">
+            <button type="submit">Login</button></a>
+        <a href="{% url 'register' %}">
+            <button type="submit">Register</button>
+        </a>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

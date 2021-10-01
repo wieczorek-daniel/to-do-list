@@ -1,27 +1,55 @@
-.navbar{
-    background-color: $secondary-color;
+.navbar {
+    background-color: $primary-color;
     height: 70px;
 
-    & .navbar-brand {
+    .navbar-brand {
         font-family: $secondary-font;
-        color: white;
+        color: #FFF;
+
+        &:hover {
+            color: $tertiary-color;
+        }
     }
 
-    & .nav-link, & a {
-        color: white;
+    .nav-item {
+        margin-right: 20px;
+    }
+
+    .nav-link {
+        color: #FFF;
         cursor: pointer;
+
+        &:hover {
+            color: $tertiary-color;
+        }
     }
 
-    & .material-icons {
-        padding-right: 10px;
+    .material-icons {
+        padding-right: 5px;
         vertical-align: bottom;
     }
 
-    & .dropdown-menu {
-        background-color: $secondary-color;
+    .dropdown-menu {
+        background-color: #FFF;
+        color: $secondary-color;
+        padding: 0;
+
+        .dropdown-item {
+            height: 32px;
+            color: $secondary-color;
+
+            &:hover {
+                background-color: $secondary-color;
+                color: #FFF;
+            }
+        }
+
+        hr {
+            margin: 0;
+        }
     }
 
-    & button {
+    button {
         color: #FFF;
         cursor: pointer;
         outline: none;
@@ -31,5 +59,9 @@
         padding: 0;
         width: 20px;
         transition: all 0.2s linear;    
-      }
+    }
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding: 0;
 }

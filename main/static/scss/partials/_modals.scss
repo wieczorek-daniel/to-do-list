@@ -1,6 +1,11 @@
 .modal {
+    .modal-content {
+        border: none;
+        border-radius: 10px;
+    }
+
     .modal-header, .modal-footer {
-        background-color: $secondary-color;
+        background-color: $primary-color;
         border: none;
     }
 
@@ -21,6 +26,10 @@
             top: 16px;
             right: 20px;
 
+            &:hover {
+                color: $tertiary-color;
+            }
+
             i {
                 font-size: 30px;
             }
@@ -28,6 +37,18 @@
     }
 
     .modal-body {
-        background-color: $tertiary-color;
+        background-color: #FFF;
+        color: $secondary-color;
+
+        input, textarea {
+            border: solid 1px $secondary-color;
+            color: $secondary-color;
+            border-radius: 10px;
+            padding: 5px 10px;
+    
+            &:focus {
+                color: $secondary-color;
+            }
+        }
     }
 }

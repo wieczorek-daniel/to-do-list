@@ -1,6 +1,6 @@
 .navbar {
     background-color: $primary-color;
-    height: 70px;
+    min-height: 70px;
 
     .navbar-brand {
         font-family: $secondary-font;
@@ -18,9 +18,16 @@
     .nav-link {
         color: #FFF;
         cursor: pointer;
+        margin-bottom: 10px;
 
         &:hover {
             color: $tertiary-color;
+        }
+    }
+
+    @include breakpoint(992px) {
+        .nav-link {
+            margin-bottom: 0;
         }
     }
 
@@ -35,7 +42,7 @@
         padding: 0;
 
         .dropdown-item {
-            height: 32px;
+            height: 2rem;
             color: $secondary-color;
 
             &:hover {
@@ -49,6 +56,17 @@
         }
     }
 
+    @include breakpoint(md) {
+        .dropdown-menu {
+            background-color: #FFF;
+            color: $secondary-color;
+
+            .dropdown-item {
+                color: $secondary-color;
+            }
+        }
+    }
+
     button {
         color: #FFF;
         cursor: pointer;
@@ -59,6 +77,19 @@
         padding: 0;
         width: 20px;
         transition: all 0.2s linear;    
+    }
+
+    .navbar-toggler {
+        margin-right: 20px;
+
+        &:focus, &:active, .material-icons:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .material-icons {
+            font-size: 2rem;
+        }
     }
 }
 

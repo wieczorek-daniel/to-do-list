@@ -2,7 +2,6 @@
     border: none;
     font-size: 1rem;
     margin-bottom: 20px;
-    margin-top: 50px;
 
     @include breakpoint(lg) {
         font-size: 1.2rem;
@@ -11,7 +10,7 @@
 
 .card-header {
     background-color: $primary-color;
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     a {
         color: #FFF;
@@ -21,7 +20,7 @@
         }
 
         span {
-            font-size: 2rem;
+            font-size: 1.8rem;
             display: block;
             float: left;
         }
@@ -100,12 +99,13 @@ textarea {
 .task-container {
     position: inherit;
     transform: none;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .task {
     .card-header {
         span:not(button span) {
+            font-size: 1.5rem;
             display: block;
             float: left;
             margin-left: 0;
@@ -128,11 +128,11 @@ textarea {
             }
 
             &:last-of-type {
-                margin-right: 10px;
+                margin-right: 5px;
             }
 
             span {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
     }

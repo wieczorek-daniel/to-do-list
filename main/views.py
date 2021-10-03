@@ -57,7 +57,7 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    tasks = Task.objects.filter(owner=request.user).all()
+    tasks = Task.objects.filter(owner=request.user).order_by('deadline').all()
     context = {'tasks': tasks}
     return render(request, "main/dashboard.html", context)
 
@@ -144,3 +144,10 @@ def deleteTask(request, pk):
 
     messages.error(request, 'An error occurred while deleting a task.')
     return redirect('dashboard')
+
+
+@login_required(login_url='login')
+def calendar(request):
+    tasks = Task.objects.filter(owner=request.user).all()
+    context = {'tasks': tasks}
+    return render(request, "main/calendar.html", context)

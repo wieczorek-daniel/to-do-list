@@ -1,0 +1,72 @@
+.calendar-container {
+    width: 100%;
+    position: inherit;
+    transform: none;
+    margin: 20px auto;
+    
+    .fc-header-toolbar {
+        display: block;
+        text-align: center;
+
+        @include breakpoint(sm) {
+            display: flex;
+        }   
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.2rem;
+        padding: 20px 0;
+
+        @include breakpoint(md) {
+            font-size: 1.75rem;
+            padding: 0;
+        }
+    }
+
+    .fc-popover {
+        border: none;
+    }
+    
+    .fc-popover-header {
+        background-color: $secondary-color;
+    }
+
+    .fc-button {
+        width: auto;
+        background-color: $primary-color;
+        border: none;
+
+        &:hover {
+            background-color: $tertiary-color;
+        }
+
+        &:disabled {
+            color: $quaternary-color;
+        }
+    }
+
+    .fc .fc-button-primary:not(:disabled).fc-button-active{
+        background-color: #000;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    table {
+        background-color: #FFF;
+        color: $tertiary-color;
+    }
+
+    a {
+        color: $tertiary-color;
+    }
+
+    .fc-list {
+        border: none;
+    }
+
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: $quaternary-color;
+    }
+}

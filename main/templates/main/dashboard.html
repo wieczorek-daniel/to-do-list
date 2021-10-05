@@ -2,11 +2,11 @@
 
 {% block content %}
 {% if not tasks %}
-<div class="container">
+<div class="container-center">
     <h2>You have not created any tasks yet.</h2>
 </div>
 {% endif %}
-<div class="container task-container">
+<div class="container">
     {% for message in messages %}
     <div class="alert alert-dismissible fade show" role="alert">
         <span>{{ message }}</span>
@@ -27,19 +27,18 @@
             </button>
         </div>
         <div class="card-body">
-            <span><i class="material-icons">description</i>Description: {{ task.description }}</span>
             <span>
-                <i class="material-icons">hourglass_bottom</i>
-                {{ task.deadline | date:"Y-m-d" }} {{ task.deadline | time:"H:i" }}
+                <i class="material-icons">hourglass_bottom</i>Deadline: {{ task.deadline | date:"Y-m-d" }} {{ task.deadline | time:"H:i" }}
             </span>
+            {% if task.description %}
+            <span><i class="material-icons">description</i>Description: {{ task.description }}</span>
+            {% endif %}
         </div>
         <div class="card-footer">
-            <span><i class="material-icons">access_time</i>
-                Created at: {{ task.created_at | date:"Y-m-d" }} {{ task.created_at | time:"H:i" }}
+            <span><i class="material-icons">access_time</i>Created at: {{ task.created_at | date:"Y-m-d" }} {{ task.created_at | time:"H:i" }}
             </span>
             <span>
-                <i class="material-icons">update</i>
-                Updated at: {{ task.updated_at | date:"Y-m-d" }} {{ task.updated_at | time:"H:i" }}
+                <i class="material-icons">update</i>Updated at: {{ task.updated_at | date:"Y-m-d" }} {{ task.updated_at | time:"H:i" }}
             </span>
         </div>
     </div>

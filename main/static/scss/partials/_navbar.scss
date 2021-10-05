@@ -5,6 +5,11 @@
     .navbar-brand {
         font-family: $secondary-font;
         color: #FFF;
+        margin-left: 10px;
+
+        @include breakpoint(lg) {
+            margin-left: 0;
+        }
 
         &:hover {
             color: $tertiary-color;
@@ -89,6 +94,7 @@
 
         .material-icons {
             font-size: 2rem;
+            padding: 0;
         }
     }
 }

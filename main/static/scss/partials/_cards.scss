@@ -96,12 +96,6 @@ textarea {
     resize: none;
 }
 
-.task-container {
-    position: inherit;
-    transform: none;
-    margin-top: 20px;
-}
-
 .task {
     .card-header {
         span:not(button span) {
@@ -141,15 +135,31 @@ textarea {
         span {
             display: block;
         }
+
+        .material-icons {
+            padding-right: 5px;
+            vertical-align: text-bottom;
+        }
     }
 
     .card-footer {
         background-color: $primary-color;
+        position: relative;
     
         span {
             font-size: 1rem;
             padding-right: 10px;
             display: block;
+
+            @include breakpoint(sm) {
+                &:first-of-type {
+                    float: left;
+                } 
+    
+                &:last-of-type {
+                    float: right;
+                }
+            }
         }
     
         .material-icons {

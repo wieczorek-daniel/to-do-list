@@ -1,7 +1,5 @@
 .calendar-container {
     width: 100%;
-    position: inherit;
-    transform: none;
     margin: 20px auto;
     
     .fc-header-toolbar {
@@ -43,6 +41,10 @@
         &:disabled {
             color: $quaternary-color;
         }
+
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .fc .fc-button-primary:not(:disabled).fc-button-active{
@@ -68,5 +70,9 @@
 
     .fc .fc-daygrid-day.fc-day-today {
         background-color: $quaternary-color;
+    }
+
+    .fc-daygrid {
+        min-height: 500px;
     }
 }

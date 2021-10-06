@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .forms import CreateUserForm, UpdateUserForm, CreateTaskForm
 from .models import Task
 
@@ -16,7 +17,7 @@ def loginUser(request):
 		return redirect('dashboard')
 	else:
 		if request.method == 'POST':
-			username = request.POST.get('username')
+			username = request.POST.get('username').lower()
 			password = request.POST.get('password')
 
 			user = authenticate(request, username=username, password=password)
@@ -39,7 +40,13 @@ def registerUser(request):
 
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
-            if form.is_valid():
+            if User.objects.filter(username__iexact=request.POST['username']):
+                messages.error(request, 'A user with this username already exists.')
+                return redirect('register')
+            elif User.objects.filter(email__iexact=request.POST['email']):
+                messages.error(request, 'A user with this email address already exists.')
+                return redirect('register')
+            elif form.is_valid():
                 form.save()
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'An account has been created for user {username}.')
@@ -52,6 +59,7 @@ def registerUser(request):
 @login_required(login_url='login')
 def logoutUser(request):
     logout(request)
+    messages.success(request, 'User successfully logged out')
     return redirect('login')
 
 

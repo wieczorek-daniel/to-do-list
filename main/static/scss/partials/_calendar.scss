@@ -1,6 +1,5 @@
 .calendar-container {
     width: 100%;
-    margin: 20px auto;
     
     .fc-header-toolbar {
         display: block;
@@ -68,11 +67,15 @@
         border: none;
     }
 
-    .fc .fc-daygrid-day.fc-day-today {
-        background-color: $quaternary-color;
-    }
-
     .fc-daygrid {
         min-height: 500px;
+    }
+
+    .fc-daygrid.fc-dayGridMonth-view.fc-view {
+        padding-bottom: 20px;
+    }
+
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: $quaternary-color;
     }
 }

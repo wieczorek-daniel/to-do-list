@@ -30,11 +30,11 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
+ADMIN_ENABLED = False
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     # Main to_do_list application
     'main',
 ]
+
+if ADMIN_ENABLED:
+    INSTALLED_APPS.append('django.contrib.admin')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -144,6 +147,7 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder'
 ]
 
+COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = True
 
 COMPRESS_PRECOMPILERS = (

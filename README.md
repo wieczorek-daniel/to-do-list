@@ -39,3 +39,6 @@ To start the application use the following command:
 ```shell
 python3 manage.py runserver
 ```
+
+## Live demo
+Heroku deployment: https://application-to-do-list.herokuapp.com

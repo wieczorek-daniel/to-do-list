@@ -109,6 +109,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'main.validators.DigitPasswordValidator',
+    },
+    {
+        'NAME': 'main.validators.UppercasePasswordValidator',
+    },
+    {
+        'NAME': 'main.validators.SpecialCharacterPasswordValidator',
+    },
 ]
 
 
@@ -161,3 +170,6 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+# Time after which the password reset link expires (15 minutes)
+PASSWORD_RESET_TIMEOUT = 900

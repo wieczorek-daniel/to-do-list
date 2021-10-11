@@ -99,7 +99,8 @@ def changePassword(request):
             update_session_auth_hash(request, form.user)
             return redirect('settings')
         else:
-            messages.error(request, 'An error occurred while updating a password.')
+            messages.error(request, 'An error occurred while updating a password. \
+            The current password is invalid, the new password does not meet the requirements or new password and confirmation are not identical.')
             return redirect('change_password')
     else:
         form = PasswordChangeForm(user=request.user)

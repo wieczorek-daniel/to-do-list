@@ -59,7 +59,7 @@ def registerUser(request):
 @login_required(login_url='login')
 def logoutUser(request):
     logout(request)
-    messages.success(request, 'User successfully logged out')
+    messages.success(request, 'User successfully logged out.')
     return redirect('login')
 
 
@@ -107,6 +107,18 @@ def changePassword(request):
 
         context = {'form': form}
         return render(request, 'main/change_password.html', context)
+
+
+@login_required(login_url='login')
+def deleteUser(request, pk):
+    user = User.objects.get(id=pk)
+    if user is not None:
+        user.delete()
+        messages.success(request, 'User successfully deleted.')
+        return redirect('login')
+    else:
+        messages.error(request, 'An error occurred while deleting an user.')
+        return redirect('settings')
 
 
 @login_required(login_url='login')

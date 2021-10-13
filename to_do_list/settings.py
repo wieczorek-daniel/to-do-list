@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+    'django_email_verification',
     # Main to_do_list application
     'main',
 ]
@@ -172,4 +173,19 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Time after which the password reset link expires (15 minutes)
-PASSWORD_RESET_TIMEOUT = 900
+PASSWORD_RESET_TIMEOUT = 15 * 60
+
+
+# Email verification
+def verified_callback(user):
+    user.is_active = True
+
+
+EMAIL_VERIFIED_CALLBACK = verified_callback
+EMAIL_FROM_ADDRESS = EMAIL_HOST_USER
+EMAIL_MAIL_SUBJECT = 'Confirm your email'
+EMAIL_MAIL_HTML = 'main/verification_email.html'
+EMAIL_MAIL_PLAIN = 'main/verification_email.txt'
+EMAIL_TOKEN_LIFE = 60 * 60
+EMAIL_PAGE_TEMPLATE = 'main/verification_email_confirm.html'
+EMAIL_PAGE_DOMAIN = '127.0.0.1:8000'

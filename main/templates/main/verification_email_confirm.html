@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container-center">
+    {% if success %}
+    <h1>Hi {{ user.username }}</h1>
+    <h2>Your account has been confirmed.</h2>
+    {% else %}
+    <h1>Error</h1>
+    <h2>The token in this link is corrupt or has already expired.</h2>
+    {% endif %}
+    <a href="{% url 'home' %}">
+        <button class="standalone-button" type="submit">Go to home page</button>
+    </a>
+</div>
+{% endblock %}

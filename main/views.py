@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django_email_verification import send_email
 from .forms import CreateUserForm, UpdateUserForm, CreateTaskForm
 from .models import Task
 
@@ -13,23 +14,30 @@ def index(request):
 
 
 def loginUser(request):
-	if request.user.is_authenticated:
-		return redirect('dashboard')
-	else:
-		if request.method == 'POST':
-			username = request.POST.get('username').lower()
-			password = request.POST.get('password')
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username').lower()
+            password = request.POST.get('password')
 
-			user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-			if user is not None:
-				login(request, user)
-				return redirect('dashboard')
-			else:
-				messages.error(request, 'The username or password is incorrect.')
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+            else:
+                try:
+                    user = User.objects.get(username=username)
 
-		context = {}
-		return render(request, 'main/login.html', context)
+                    if user.is_active == False:
+                        messages.error(request, 'Your account is inactive. Confirm this in the message we sent to the email address you provided during registration.')
+                        send_email(user)
+                except User.DoesNotExist:
+                    messages.error(request, 'The username or password is incorrect.')
+
+        context = {}
+        return render(request, 'main/login.html', context)
 
 
 def registerUser(request):
@@ -47,9 +55,12 @@ def registerUser(request):
                 messages.error(request, 'A user with this email address already exists.')
                 return redirect('register')
             elif form.is_valid():
-                form.save()
+                user = form.save(commit=False)
+                user.is_active = False
+                send_email(user)
+                user.save()
                 username = form.cleaned_data.get('username')
-                messages.success(request, f'An account has been created for user {username}.')
+                messages.success(request, f'An account has been created for user {username}. An account confirmation link has been sent to the email address you provided.')
                 return redirect('login')
 
     context = {'form': form}

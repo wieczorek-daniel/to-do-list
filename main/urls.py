@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from django_email_verification import urls as email_urls
 from . import views
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     path('reset_password/done/', auth_views.PasswordResetDoneView.as_view(template_name="main/password_reset_done.html"), name="password_reset_done"),
     path('reset_password/confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="main/password_reset_confirm.html"), name="password_reset_confirm"),
     path('reset_password/complete/', auth_views.PasswordResetCompleteView.as_view(template_name="main/password_reset_complete.html"), name="password_reset_complete"),
+    path('verify_email/', include(email_urls)),
     path('create_task/', views.createTask, name='create_task'),
     path('update_task/<str:pk>/', views.updateTask, name="update_task"),
     path('delete_task/<str:pk>/', views.deleteTask, name="delete_task"),

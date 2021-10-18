@@ -1,4 +1,3 @@
-from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django_email_verification import urls as email_urls

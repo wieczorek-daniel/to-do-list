@@ -188,4 +188,4 @@ EMAIL_MAIL_HTML = 'main/verification_email.html'
 EMAIL_MAIL_PLAIN = 'main/verification_email.txt'
 EMAIL_TOKEN_LIFE = 60 * 60
 EMAIL_PAGE_TEMPLATE = 'main/verification_email_confirm.html'
-EMAIL_PAGE_DOMAIN = '127.0.0.1:8000'
+EMAIL_PAGE_DOMAIN = config('EMAIL_PAGE_DOMAIN')

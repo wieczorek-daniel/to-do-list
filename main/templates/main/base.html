@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    {% if user.is_authenticated and 'verify_email' not in url %}
+    {% if user.is_authenticated and 'verify_email' not in request.path %}
     {% include 'main/navbar.html' %}
     {% endif %}
     <main>

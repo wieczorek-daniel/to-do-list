@@ -174,3 +174,18 @@ textarea {
         }
     }
 }
+
+.xdsoft_datetimepicker .xdsoft_calendar td:hover,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_time:hover,
+.xdsoft_datetimepicker .xdsoft_monthselect .xdsoft_option:hover,
+.xdsoft_datetimepicker .xdsoft_yearselect .xdsoft_option:hover  {
+    background: $tertiary-color !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_monthselect .xdsoft_current,
+.xdsoft_datetimepicker .xdsoft_yearselect .xdsoft_current {
+    background: $secondary-color !important;
+}
